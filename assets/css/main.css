@@ -1,5 +1,9 @@
 #game {
-  background: url('https://images.unsplash.com/photo-1491592558635-f4cc68beb2e9?auto=format&fit=crop&w=1566&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+  background-image: url("./images/granite.jpeg");
   width: 100%;
   height: 100%;
+}
+
+.display {
+  background-color: #red;
 }
