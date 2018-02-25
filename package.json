@@ -1,0 +1,23 @@
+{
+  "name": "wordjs",
+  "version": "1.0.0",
+  "description": "Addictive word-finding puzzle game. The goal is to find as many words as you can given the allotted time. Challenge your friends to see who can find more words!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack -d",
+    "build": "webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kelby",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.3",
+    "babel-preset-env": "^1.6.1",
+    "webpack-cli": "^2.0.9"
+  }
+}
