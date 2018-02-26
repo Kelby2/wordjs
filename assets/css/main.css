@@ -2,8 +2,12 @@
   background-image: url("./images/granite.jpeg");
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .display {
-  background-color: #red;
+  background-color: red;
+  height: 100%;
+  width: 300px;
 }
