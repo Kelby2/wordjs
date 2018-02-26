@@ -1,5 +1,6 @@
-const _ = require("underscore");
+import Game from "./game";
 
-console.log(_.shuffle([1,2,3,4,5]));
-
-console.log("hello!");
+document.addEventListener("DOMContentLoaded", () => {
+  const game = new Game();
+  
+});
