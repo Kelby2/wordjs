@@ -7,7 +7,20 @@
 }
 
 .display {
-  background-color: red;
   height: 100%;
   width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.answers {
+  background-color: rgba(200, 200, 200, 0.3);
+  height: 90%;
+}
+
+#clock {
+  font-size: 80px;
+  color: blue;
+  font-weight: bold;
 }
