@@ -1,4 +1,4 @@
-import { words } from "./words"
+import { words } from "./words";
 
 class Dictionary {
   constructor() {
