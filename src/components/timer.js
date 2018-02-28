@@ -1,27 +1,35 @@
 //start
-//reset
-//currentTime
+//stop
+//display
 
 class Timer {
 
-  constructor(time) {
-    this.time = time, this.playClock = time;
+  constructor(duration) {
+    this.duration = duration;
+    this.endOfTime = false;
+    this.clock = document.getElementById("clock");
   }
 
   start() {
-    this.runTimer = setInterval(() =>
-    {
-      this.display();
-      this.playClock -= 1;
-    }, 1000);
+    this.tick = setInterval(() => {
+      this.display(this.duration);
+      this.duration--;
+    }, 1000)
+  }
+
+  stop() {
+    clearInterval(this.tick);
+    this.endOfTime = true;
   }
 
   display() {
-    if (this.playClock < 0) {
-      clearInterval(this.runTimer);
-    } else {
-      console.log(this.playClock);
-    }
+    if (this.duration <= 0) { this.stop() }
+    clock.innerHTML = this.duration;
+  }
+
+  increase(duration) {
+    //increase duration after entering X words
+    //future implementation
   }
 
 }
