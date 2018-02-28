@@ -1,4 +1,4 @@
-export const gameWords = {
+export const sixCharGameWords = [
 "abduct",
 "abound",
 "accept",
@@ -470,4 +470,4 @@ export const gameWords = {
 "zinged",
 "zodiac",
 "zodiac"
-}
+]
