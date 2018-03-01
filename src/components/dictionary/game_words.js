@@ -1,4 +1,4 @@
-export const sixCharGameWords = [
+const gameWords = [
 "abduct",
 "abound",
 "accept",
@@ -471,3 +471,5 @@ export const sixCharGameWords = [
 "zodiac",
 "zodiac"
 ]
+
+export default gameWords;
