@@ -22,7 +22,10 @@ export const _getValidSubstrings = (word, params) => {
   const subwords = _getPermutations(substrings);
   const validSubstrings = dictionary.validateCollection(subwords);
 
-  return validSubstrings.filter(word => {
-    return word.length >= params.min && word.length <= params.max
-  })
+  return validSubstrings.filter(word => (
+    word.length >= params.min && word.length <= params.max
+  )).sort((word1, word2) => (
+    //sorts first by length and then alphabetically
+    word1.length - word2.length || word1.localeCompare(word2)
+  ))
 }

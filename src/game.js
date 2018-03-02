@@ -13,6 +13,7 @@ class Game {
   run() {
     this.word = new Word();
     this.timer.start();
+    debugger
   }
 
 
