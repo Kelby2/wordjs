@@ -1,4 +1,4 @@
-const game_keys = [
+const keyWords = [
 "abduct",
 "abound",
 "accept",
@@ -472,4 +472,4 @@ const game_keys = [
 "zodiac"
 ]
 
-export default game_keys;
+export default keyWords;
