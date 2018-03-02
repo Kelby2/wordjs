@@ -1,4 +1,4 @@
-import gameWordsLibrary from './game_words';
+import keys from './game_keys';
 import { _getValidSubstrings } from './subwords';
 
 class Word {
@@ -14,8 +14,8 @@ class Word {
   }
 
   _generateRandomWord() {
-    const rand = Math.floor(Math.random() * gameWordsLibrary.length);
-    this.value = gameWordsLibrary[rand];
+    const rand = Math.floor(Math.random() * keys.length);
+    this.value = keys[rand];
   }
 
 }
