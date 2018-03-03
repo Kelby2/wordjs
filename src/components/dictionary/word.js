@@ -9,8 +9,8 @@ class Word {
   }
 
   _getValidSubstrings() {
-    this.shortSubstrings = _getValidSubstrings(this.value, { min: 3, max: 3 } )
-    this.longSubstrings = _getValidSubstrings(this.value, { min: 4, max: 6 })
+    this.shortSubwords = _getValidSubstrings(this.value, { min: 3, max: 3 } )
+    this.longSubwords = _getValidSubstrings(this.value, { min: 4, max: 6 })
   }
 
   _generateRandomWord() {
