@@ -6,6 +6,7 @@ class Word {
   constructor() {
     this._generateRandomWord();
     this._getValidSubstrings();
+    this._generateLetters();
   }
 
   _getValidSubstrings() {
@@ -16,6 +17,11 @@ class Word {
   _generateRandomWord() {
     const rand = Math.floor(Math.random() * keyWordsList.length);
     this.value = keyWordsList[rand];
+  }
+
+  _generateLetters() {
+    const chars = this.value.split("");
+    this.letters = new Set(chars);
   }
 
 }

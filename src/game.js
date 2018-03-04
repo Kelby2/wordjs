@@ -9,13 +9,12 @@ class Game {
     // this.board = new Board();
     this.gameOver = false;
     this.timer = new Timer(3);
-    this.board = new Board(this);
   }
 
   run() {
     this.word = new Word();
+    this.board = new Board(this);
     this.timer.start();
-    this.board.render();
   }
 
 
