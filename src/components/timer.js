@@ -7,7 +7,7 @@ class Timer {
   constructor(duration) {
     this.duration = duration;
     this.endOfTime = false;
-    this.clock = document.getElementById("clock");
+    // this.clock = document.getElementById("clock");
   }
 
   start() {

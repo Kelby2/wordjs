@@ -12,7 +12,8 @@ class Board {
     //creates side panels and main game word panel
     this.word.shortSubwords;
     this.word.longSubwords;
-    this.word;
+    const word = document.getElementById("word");
+    word.innerHTML = this.word.value;
   }
 
   shuffleLetters() {
