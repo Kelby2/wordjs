@@ -43,7 +43,7 @@ body {
 
 #round-info {
   display: flex;
-  
+
 }
 
 .answers {
@@ -51,7 +51,8 @@ body {
   height: 90%;
 }
 
-#clock {
+#clock, #score {
+  width: 50%;
   font-size: 80px;
   color: blue;
   font-weight: bold;
