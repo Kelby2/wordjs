@@ -4,16 +4,16 @@ class Board {
 
   constructor(game) {
     this.game = game;
-    this.word = this.game.word;
+    this.keyWord = this.game.word;
     this.populate();
   }
 
   populate() {
     //creates side panels and main game word panel
-    this.word.shortSubwords;
-    this.word.longSubwords;
-    const word = document.getElementById("word");
-    word.innerHTML = this.word.value;
+    this.keyWord.shortSubwords;
+    this.keyWord.longSubwords;
+    const keyWord = document.getElementById("key-word");
+    keyWord.innerHTML = this.keyWord.value;
   }
 
   shuffleLetters() {
