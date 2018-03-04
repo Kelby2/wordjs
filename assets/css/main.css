@@ -1,25 +1,63 @@
+*, div {
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./images/gradient_bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #464646;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 #game {
-  background-image: url("./images/granite.jpeg");
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
 }
 
 .display {
   height: 100%;
-  width: 300px;
   display: flex;
   flex-direction: column;
+}
+
+.side-panel {
+  flex: 1;
   justify-content: center;
 }
 
+#game-panel {
+  flex: 2;
+}
+
+#title {
+  font-size: 36px;
+}
+
+#round-info {
+  display: flex;
+  
+}
+
 .answers {
-  background-color: rgba(200, 200, 200, 0.3);
+  background-color: rgba(240, 240, 240, 0.1);
   height: 90%;
 }
 
 #clock {
+  font-size: 80px;
+  color: blue;
+  font-weight: bold;
+}
+
+#word {
   font-size: 80px;
   color: blue;
   font-weight: bold;
