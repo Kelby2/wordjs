@@ -21,7 +21,7 @@ class Word {
 
   _generateLetters() {
     const chars = this.value.split("");
-    this.letters = new Set(chars);
+    this.letters = chars;
   }
 
 }
