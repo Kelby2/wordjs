@@ -1,8 +1,3 @@
-*, div {
-  border: 1px solid red;
-  box-sizing: border-box;
-}
-
 body {
   background-image: url("./images/gradient_bg.jpg");
   background-position: center center;
@@ -26,6 +21,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .side-panel {
@@ -35,6 +31,7 @@ body {
 
 #game-panel {
   flex: 2;
+  justify-content: space-around;
 }
 
 #title {
@@ -43,12 +40,17 @@ body {
 
 #round-info {
   display: flex;
-
+  width: 100%;
 }
 
 .answers {
   background-color: rgba(240, 240, 240, 0.1);
   height: 90%;
+  width: 84%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #clock, #score {
@@ -56,6 +58,7 @@ body {
   font-size: 50px;
   color: blue;
   font-weight: bold;
+  text-align: center;
 }
 
 #key-word {
@@ -63,3 +66,7 @@ body {
   color: blue;
   font-weight: bold;
 }
+
+/*article * {
+  border: 1px solid red;*/
+/*}*/
