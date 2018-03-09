@@ -1,3 +1,8 @@
+@font-face {
+    font-family: againts;
+    src: url("fonts/againts.otf") format("opentype");
+}
+
 body {
   background-image: url("./images/gradient_bg.jpg");
   background-position: center center;
@@ -9,7 +14,6 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
-
 
 #game {
   width: 100%;
@@ -36,6 +40,10 @@ body {
 
 #title {
   font-size: 36px;
+}
+
+#remix {
+  font-family: againts;
 }
 
 #round-info {
