@@ -57,10 +57,6 @@ class Board {
 
   handleInput() {
     //eventListener for input form
-    // const entryPoint = document.getElementById("user-input");
-    // entryPoint.addEventListener("keypress", () => {
-    //   this.validateEntry(this.keyWord)
-    // });
   }
 
 }

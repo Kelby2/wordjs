@@ -24,6 +24,10 @@ class Word {
     this.letters = chars;
   }
 
+  includes(letter) {
+    return this.value.includes(letter.toLowerCase());
+  }
+
 }
 
 export default Word;

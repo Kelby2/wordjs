@@ -29,3 +29,17 @@ export const _getValidSubstrings = (word, params) => {
     word1.length - word2.length || word1.localeCompare(word2)
   ))
 }
+
+export const _charFrequency = (string) => {
+  const frequency = {};
+  const letters = string.split("");
+  letters.forEach(letter => {
+    if (frequency[letter]) {
+      frequency[letter] += 1;
+    } else {
+      frequency[letter] = 1;
+    }
+  })
+
+  return frequency;
+}
