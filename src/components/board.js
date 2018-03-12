@@ -1,3 +1,4 @@
+import LetterTiles from './letter_tiles';
 //populate_board
 //display
 class Board {
@@ -14,21 +15,25 @@ class Board {
     //creates side panels and main game word panel
     const keyWord = document.getElementById("key-word");
     const shortAnswers = document.getElementById("short-list");
-    const longAnswers = document.getElementById("long-list");
-
-
-    this.keyWord.shortSubwords.forEach(word => {
-      const wordBlock = document.createElement('li');
-      wordBlock.innerHTML = word;
-      shortAnswers.append(wordBlock);
-    });
-
-    this.keyWord.longSubwords.forEach(word => {
-      const wordBlock = document.createElement('li');
-      wordBlock.innerHTML = word;
-      longAnswers.append(wordBlock);
-    });
+    // const longAnswers = document.getElementById("long-list");
+    //
+    //
+    // this.keyWord.shortSubwords.forEach(word => {
+    //   const wordBlock = document.createElement('li');
+    //   wordBlock.innerHTML = word;
+    //   shortAnswers.append(wordBlock);
+    // });
+    //
+    // this.keyWord.longSubwords.forEach(word => {
+    //   const wordBlock = document.createElement('li');
+    //   wordBlock.innerHTML = word;
+    //   longAnswers.append(wordBlock);
+    // });
     keyWord.innerHTML = this.keyWord.value;
+    this.keyWord.shortSubwords.forEach(word => {
+      const x = new LetterTiles(word);
+      shortAnswers.append(x.answer);
+    })
   }
 
   shuffleLetters() {

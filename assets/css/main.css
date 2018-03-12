@@ -98,6 +98,17 @@ body {
   background-color: rgba(240, 240, 240, 0.1);
 }
 
+.answer {
+  display: flex;
+}
+
+.tile {
+  border: 1px solid #ffffff;
+  width: 15px;
+  height: 15px;
+  margin: 1px;
+}
+
 /*article * {
   border: 1px solid red;*/
 /*}*/
