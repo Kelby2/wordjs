@@ -1,5 +1,5 @@
 import keyWordsList from './game_keys';
-import { _getValidSubstrings } from './subwords';
+import { _getValidSubstrings } from './util';
 
 class Word {
 

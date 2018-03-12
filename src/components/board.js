@@ -6,6 +6,7 @@ class Board {
   constructor(game) {
     this.game = game;
     this.keyWord = this.game.word;
+    this.answerKey = [...this.keyWord.shortSubwords, ...this.keyWord.longSubwords];
     this.populate();
     this.handleInput();
     this.valdiateEntry = this.validateEntry.bind(this);
