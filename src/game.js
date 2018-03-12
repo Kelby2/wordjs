@@ -1,4 +1,3 @@
-import Dictionary from "./components/dictionary/dictionary";
 import Timer from "./components/timer";
 import Score from "./components/score";
 import Word from "./components/dictionary/word";
