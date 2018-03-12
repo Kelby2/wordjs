@@ -29,11 +29,11 @@ class Game {
   }
 
   validateInput() {
-    if (this.isValid(event.key, event.currentTarget)) {
+    if (this._isValid(event.key, event.currentTarget)) {
     } else {
         event.preventDefault();
         if (event.keyCode === 13) {
-          this.handleSubmit();
+          this.handleSubmit(event.currentTarget);
         }
         if (event.keyCode === 32) {
           this.board.shuffleLetters();
@@ -41,8 +41,8 @@ class Game {
     }
   }
 
-  handleSubmit() {
-    
+  handleSubmit(word) {
+    this.board.updateAnswers(word.value)
   }
 
   _isValid(letter, inputForm) {

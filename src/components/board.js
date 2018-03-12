@@ -9,7 +9,6 @@ class Board {
     this.answerKey = {};
     this.populate();
     this.handleInput();
-    this.valdiateEntry = this.validateEntry.bind(this);
   }
 
   populate() {
@@ -38,21 +37,10 @@ class Board {
     console.log('Shuffling!')
   }
 
-  updateAnswers() {
-    //update side panels
-  }
-
-  validateInput() {
-    //validate valid key entry (has to be a letter in the word)
-  }
-
-  validateEntry(keyWord) {
-    //only allow alpha chars, enter, and spacebar
-    if (event.keyCode === 32) {
-      event.preventDefault();
-      this.shuffleLetters();
-    }
-
+  updateAnswers(word) {
+    const userInput = document.getElementById("user-input");
+    userInput.value = "";
+    this.answerKey[word].reveal();
   }
 
   handleInput() {
