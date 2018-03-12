@@ -17,7 +17,23 @@ class Game {
     this.score = new Score()
     this.timer.start();
     this.score.display();
+
+    this.handlePlayerEntry();
   }
+
+  handlePlayerEntry() {
+    const userInput = document.getElementById("user-input");
+    userInput.addEventListener("keypress", this.validateInput.bind(this));
+  }
+
+  validateInput() {
+    if (event.keyCode === 32) {
+      event.preventDefault();
+      this.board.shuffleLetters();
+    }
+  }
+
+
 
 
 }

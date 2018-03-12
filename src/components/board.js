@@ -6,7 +6,7 @@ class Board {
   constructor(game) {
     this.game = game;
     this.keyWord = this.game.word;
-    this.answerKey = [...this.keyWord.shortSubwords, ...this.keyWord.longSubwords];
+    this.answerKey = {};
     this.populate();
     this.handleInput();
     this.valdiateEntry = this.validateEntry.bind(this);
@@ -16,24 +16,20 @@ class Board {
     //creates side panels and main game word panel
     const keyWord = document.getElementById("key-word");
     const shortAnswers = document.getElementById("short-list");
-    // const longAnswers = document.getElementById("long-list");
-    //
-    //
-    // this.keyWord.shortSubwords.forEach(word => {
-    //   const wordBlock = document.createElement('li');
-    //   wordBlock.innerHTML = word;
-    //   shortAnswers.append(wordBlock);
-    // });
-    //
-    // this.keyWord.longSubwords.forEach(word => {
-    //   const wordBlock = document.createElement('li');
-    //   wordBlock.innerHTML = word;
-    //   longAnswers.append(wordBlock);
-    // });
+    const longAnswers = document.getElementById("long-list");
+
     keyWord.innerHTML = this.keyWord.value;
+
     this.keyWord.shortSubwords.forEach(word => {
-      const x = new LetterTiles(word);
-      shortAnswers.append(x.answer);
+      const shortAnswer = new LetterTiles(word);
+      this.answerKey[word] = shortAnswer;
+      shortAnswers.append(shortAnswer.answer);
+    })
+
+    this.keyWord.longSubwords.forEach(word => {
+      const longAnswer = new LetterTiles(word);
+      this.answerKey[word] = longAnswer;
+      longAnswers.append(longAnswer.answer);
     })
   }
 
@@ -61,10 +57,10 @@ class Board {
 
   handleInput() {
     //eventListener for input form
-    const entryPoint = document.getElementById("user-input");
-    entryPoint.addEventListener("keypress", () => {
-      this.validateEntry(this.keyWord)
-    });
+    // const entryPoint = document.getElementById("user-input");
+    // entryPoint.addEventListener("keypress", () => {
+    //   this.validateEntry(this.keyWord)
+    // });
   }
 
 }
