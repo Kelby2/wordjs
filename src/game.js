@@ -7,7 +7,6 @@ import { _charFrequency } from "./components/dictionary/util";
 
 class Game {
   constructor() {
-    // this.board = new Board();
     this.gameOver = false;
     this.timer = new Timer(3);
     this.validateInput = this.validateInput.bind(this);
@@ -37,7 +36,7 @@ class Game {
           this.handleSubmit(event.currentTarget);
         }
         if (event.keyCode === 32) {
-          this.board.shuffleLetters();
+          this.board.populateKeyWord();
         }
     }
   }
@@ -50,6 +49,7 @@ class Game {
     //compares letter frequency of word to the input
     const keyWordCharFrequency = _charFrequency(this.word.value);
     const inputCharFrequency = _charFrequency(inputForm.value);
+
     if (keyWordCharFrequency[letter] === inputCharFrequency[letter]) {
       return false;
     }
