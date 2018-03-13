@@ -80,7 +80,7 @@ body {
 
 #key-word {
   min-height: 80px;
-  font-size: 80px;
+  /*font-size: 80px;*/
   color: blue;
   font-weight: bold;
 }
