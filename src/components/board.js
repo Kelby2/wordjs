@@ -23,18 +23,18 @@ class Board {
       const shortAnswer = new LetterTiles(word);
       this.answerKey[word] = shortAnswer;
       shortAnswers.append(shortAnswer.answer);
-    })
+    });
 
     this.keyWord.longSubwords.forEach(word => {
       const longAnswer = new LetterTiles(word);
       this.answerKey[word] = longAnswer;
       longAnswers.append(longAnswer.answer);
-    })
+    });
   }
 
   shuffleLetters() {
     //shuffle key_word letters
-    console.log('Shuffling!')
+    console.log('Shuffling!');
   }
 
   updateAnswers(word) {

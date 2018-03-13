@@ -16,7 +16,7 @@ class Game {
   run() {
     this.word = new Word();
     this.board = new Board(this);
-    this.score = new Score()
+    this.score = new Score();
     this.timer.start();
     this.score.display();
 
@@ -30,6 +30,7 @@ class Game {
 
   validateInput() {
     if (this._isValid(event.key, event.currentTarget)) {
+        // console.log("Hello");
     } else {
         event.preventDefault();
         if (event.keyCode === 13) {
@@ -42,12 +43,12 @@ class Game {
   }
 
   handleSubmit(word) {
-    this.board.updateAnswers(word.value)
+    this.board.updateAnswers(word.value);
   }
 
   _isValid(letter, inputForm) {
     //compares letter frequency of word to the input
-    const keyWordCharFrequency = _charFrequency(this.word.value)
+    const keyWordCharFrequency = _charFrequency(this.word.value);
     const inputCharFrequency = _charFrequency(inputForm.value);
     if (keyWordCharFrequency[letter] === inputCharFrequency[letter]) {
       return false;

@@ -14,7 +14,7 @@ class LetterTiles {
     this.revealed = true;
     this.tiles.map((tile, idx) => {
       tile.innerHTML = this.keyWord[idx];
-    })
+    });
     this._fill();
   }
 
@@ -25,7 +25,7 @@ class LetterTiles {
       const tile = document.createElement("div");
       tile.classList.add("tile");
       return tile;
-    })
+    });
   }
 
   _fill() {

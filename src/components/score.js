@@ -9,12 +9,12 @@ class Score {
   }
 
   display() {
-    const gameScore = document.getElementById("score")
+    const gameScore = document.getElementById("score");
     gameScore.innerHTML = this.currentScore;
   }
 
   _calculateScore(word) {
-    return word.length * 10
+    return word.length * 10;
   }
 
   _calculateTotalScore() {

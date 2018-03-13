@@ -1,8 +1,8 @@
-import word_library from "./valid_words_library";
+import wordLibrary from "./valid_words_library";
 
 class Dictionary {
   constructor() {
-    this.dictionary = new Set(word_library);
+    this.dictionary = new Set(wordLibrary);
   }
 
   isValid(word) {
