@@ -6,12 +6,11 @@ class Word {
   constructor() {
     this._generateRandomWord();
     this._getValidSubstrings();
-    this._generateLetters();
   }
 
   _getValidSubstrings() {
-    this.shortSubwords = _getValidSubstrings(this.value, { min: 3, max: 3 } )
-    this.longSubwords = _getValidSubstrings(this.value, { min: 4, max: 6 })
+    this.shortSubwords = _getValidSubstrings(this.value, { min: 3, max: 3 } );
+    this.longSubwords = _getValidSubstrings(this.value, { min: 4, max: 6 });
   }
 
   _generateRandomWord() {
@@ -19,9 +18,14 @@ class Word {
     this.value = keyWordsList[rand];
   }
 
-  _generateLetters() {
-    const chars = this.value.split("");
-    this.letters = chars;
+  shuffled() {
+    //Fisher Yates Shuffle
+    const letterArr = this.value.split("");
+    for (let i = letterArr.length-1; i > 0; i--) {
+      const rIndex = Math.floor(Math.random() * (i+1));
+      [letterArr[i], letterArr[rIndex]] = [letterArr[rIndex], letterArr[i]];
+    }
+    return letterArr.join('');
   }
 
   includes(letter) {

@@ -8,16 +8,14 @@ class Board {
     this.keyWord = this.game.word;
     this.answerKey = {};
     this.populate();
-    this.handleInput();
   }
 
   populate() {
     //creates side panels and main game word panel
-    const keyWord = document.getElementById("key-word");
     const shortAnswers = document.getElementById("short-list");
     const longAnswers = document.getElementById("long-list");
-
-    keyWord.innerHTML = this.keyWord.value;
+    //shuffles and displays keyWord on game-panel
+    this.populateKeyWord();
 
     this.keyWord.shortSubwords.forEach(word => {
       const shortAnswer = new LetterTiles(word);
@@ -32,19 +30,26 @@ class Board {
     });
   }
 
-  shuffleLetters() {
+  populateKeyWord() {
     //shuffle key_word letters
-    console.log('Shuffling!');
+    const keyWordField = document.getElementById("key-word");
+    // const keyWord = new LetterTiles(this.keyWord.shuffled);
+    const shuffledKeyWord = this.keyWord.shuffled();
+    const keyWord = new LetterTiles(shuffledKeyWord);
+    keyWord.reveal();
+    if (keyWordField.firstChild) {
+      keyWordField.removeChild(keyWordField.firstChild);
+    }
+    keyWordField.append(keyWord.answer);
+
   }
 
   updateAnswers(word) {
     const userInput = document.getElementById("user-input");
     userInput.value = "";
-    this.answerKey[word].reveal();
-  }
-
-  handleInput() {
-    //eventListener for input form
+    if (this.answerKey[word]) {
+      this.answerKey[word].reveal();
+    }
   }
 
 }

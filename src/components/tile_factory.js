@@ -5,7 +5,7 @@ class LetterTiles {
     this.revealed = false;
     this.answer = document.createElement('li');
     this.answer.classList.add('answer');
-    this.tiles = this._createLetterTiles();
+    this.tiles = this._createLetterTiles(this.keyWord);
     this._fill();
   }
 
@@ -18,9 +18,9 @@ class LetterTiles {
     this._fill();
   }
 
-  _createLetterTiles() {
+  _createLetterTiles(word) {
     //creates individual tiles for each letter of the word
-    const letters = this.keyWord.split("");
+    const letters = word.split("");
     return letters.map(letter => {
       const tile = document.createElement("div");
       tile.classList.add("tile");
