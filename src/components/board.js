@@ -1,4 +1,4 @@
-import LetterTiles from './letter_tiles';
+import LetterTiles from './tile_factory';
 //populate_board
 //display
 class Board {
