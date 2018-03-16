@@ -113,6 +113,13 @@ body {
   text-align: center;
 }
 
+#key-word .tile {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
 @media screen and (max-width: 700px) {
   #game {
     flex-direction: column;
