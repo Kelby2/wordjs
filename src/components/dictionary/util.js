@@ -11,24 +11,24 @@ function _getSubsets(word) {
 
 function _getPermutations(array) {
   const subwords = array.reduce((acc, el) => {
-    return acc.concat(permutations(el, { unique: true }))
-  }, [])
+    return acc.concat(permutations(el, { unique: true }));
+  }, []);
   return subwords;
 }
 
-export const _getValidSubstrings = (word, params) => {
+export const _getValidSubstrings = (keyWord, lengths) => {
   const dictionary = new Dictionary();
-  const substrings = _getSubsets(word);
+  const substrings = _getSubsets(keyWord);
   const subwords = _getPermutations(substrings);
   const validSubstrings = dictionary.validateCollection(subwords);
 
   return validSubstrings.filter(word => (
-    word.length >= params.min && word.length <= params.max
+    word.length >= lengths.min && word.length <= lengths.max
   )).sort((word1, word2) => (
     //sorts first by length and then alphabetically
     word1.length - word2.length || word1.localeCompare(word2)
-  ))
-}
+  ));
+};
 
 export const _charFrequency = (string) => {
   const frequency = {};
@@ -39,7 +39,7 @@ export const _charFrequency = (string) => {
     } else {
       frequency[letter] = 1;
     }
-  })
+  });
 
   return frequency;
-}
+};
