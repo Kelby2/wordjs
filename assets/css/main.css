@@ -113,6 +113,10 @@ body {
   text-align: center;
 }
 
+.end-game {
+  color: red;
+}
+
 #key-word .tile {
   width: 30px;
   height: 30px;
