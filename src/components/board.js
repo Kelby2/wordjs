@@ -6,17 +6,15 @@ class Board {
   constructor(game) {
     this.game = game;
     this.keyWord = this.game.word;
-    this.answerDisplay = {};
     this.shortAnswers = document.getElementById("short-list");
     this.longAnswers = document.getElementById("long-list");
+    this.reset();
     this.populate();
   }
 
   populate() {
     //creates side panels and main game word panel
     //shuffles and displays keyWord on game-panel
-    this.shortAnswers.innerHTML = "";
-    this.longAnswers.innerHTML = "";
     this.populateKeyWord();
 
     this.keyWord.allSubwords.forEach(word => {
@@ -57,6 +55,18 @@ class Board {
         this.answerDisplay[word].reveal(true);
       }
     });
+  }
+
+  reset() {
+    this.answerDisplay = {};
+    while (this.shortAnswers.firstChild) {
+      this.shortAnswers.removeChild(this.shortAnswers.firstChild);
+    }
+
+    while (this.longAnswers.firstChild) {
+      this.longAnswers.removeChild(this.longAnswers.firstChild);
+    }
+    
   }
 
 }
