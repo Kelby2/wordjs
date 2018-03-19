@@ -8,7 +8,7 @@ import { _charFrequency } from "./components/dictionary/util";
 class Game {
   constructor() {
     this.gameOver = false;
-    this.timer = new Timer(3);
+    this.timer = new Timer(this);
     this.validateInput = this.validateInput.bind(this);
   }
 
@@ -28,19 +28,17 @@ class Game {
   }
 
   validateInput() {
-    if (this._isValid(event.key, event.currentTarget)) {
-        //
-    } else {
-        event.preventDefault();
-        if (event.keyCode === 13) {
+    if (!this._isValid(event.key, event.currentTarget)) {
+      event.preventDefault();
+      switch (event.keyCode) {
+        case 13: //enter key to submit input
           this.handleSubmit(event.currentTarget);
           event.currentTarget.value = "";
-        }
-        if (event.keyCode === 32) {
-          //spacebar shuffles the letters
-          this.endGame();
+          break;
+        case 32: //spacebar to shuffle letters
           this.board.populateKeyWord();
-        }
+          break;
+      }
     }
   }
 
