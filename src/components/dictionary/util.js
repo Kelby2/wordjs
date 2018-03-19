@@ -7,10 +7,7 @@ function _getSubsets(word) {
   // unique subsets
   return subset(letters)
             .filter(letterArrs => letterArrs.length > 2)
-            .map(substrings => substrings.join(''))
-            .filter((subword, index, list) => {
-              return list.indexOf(subword) === index;
-            });
+            .map(substrings => substrings.join(''));
 }
 
 function _getPermutations(array) {
@@ -25,8 +22,10 @@ export const _getValidSubstrings = (keyWord, lengths) => {
   const substrings = _getSubsets(keyWord);
   const subwords = _getPermutations(substrings);
   const validSubwords = dictionary.validateCollection(subwords);
-  return validSubwords.filter(word => (
-    word.length >= lengths.min && word.length <= lengths.max
+  return validSubwords.filter((word, index, list) => (
+    word.length >= lengths.min
+    && word.length <= lengths.max
+    && list.indexOf(word) === index
   )).sort((word1, word2) => (
     //sorts first by length and then alphabetically
     word1.length - word2.length || word1.localeCompare(word2)
