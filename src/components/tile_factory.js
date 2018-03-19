@@ -3,8 +3,8 @@ class LetterTiles {
   constructor(word) {
     this.keyWord = word;
     this.revealed = false;
-    this.answer = document.createElement('li');
-    this.answer.classList.add('answer');
+    this.answerItem = document.createElement('li');
+    this.answerItem.classList.add('answer');
     this.tiles = this._createLetterTiles(this.keyWord);
     this._fill();
   }
@@ -31,7 +31,7 @@ class LetterTiles {
 
   _fill() {
     //appends the tile to the answer to show on the board
-    this.answer.append(...this.tiles);
+    this.answerItem.append(...this.tiles);
   }
 
 }

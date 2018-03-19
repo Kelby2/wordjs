@@ -6,27 +6,29 @@ class Board {
   constructor(game) {
     this.game = game;
     this.keyWord = this.game.word;
-    this.answerKey = {};
+    this.answerDisplay = {};
+    this.shortAnswers = document.getElementById("short-list");
+    this.longAnswers = document.getElementById("long-list");
     this.populate();
   }
 
   populate() {
     //creates side panels and main game word panel
-    const shortAnswers = document.getElementById("short-list");
-    const longAnswers = document.getElementById("long-list");
     //shuffles and displays keyWord on game-panel
+    this.shortAnswers.innerHTML = "";
+    this.longAnswers.innerHTML = "";
     this.populateKeyWord();
 
-    this.keyWord.shortSubwords.forEach(word => {
-      const shortAnswer = new LetterTiles(word);
-      this.answerKey[word] = shortAnswer;
-      shortAnswers.append(shortAnswer.answer);
-    });
-
-    this.keyWord.longSubwords.forEach(word => {
-      const longAnswer = new LetterTiles(word);
-      this.answerKey[word] = longAnswer;
-      longAnswers.append(longAnswer.answer);
+    this.keyWord.allSubwords.forEach(word => {
+      if (word.length < 4) {
+        const shortAnswer = new LetterTiles(word);
+        this.answerDisplay[word] = shortAnswer;
+        this.shortAnswers.append(shortAnswer.answerItem);
+      } else {
+        const longAnswer = new LetterTiles(word);
+        this.answerDisplay[word] = longAnswer;
+        this.longAnswers.append(longAnswer.answerItem);
+      }
     });
   }
 
@@ -40,19 +42,19 @@ class Board {
     if (keyWordField.firstChild) {
       keyWordField.removeChild(keyWordField.firstChild);
     }
-    keyWordField.append(keyWord.answer);
+    keyWordField.append(keyWord.answerItem);
   }
 
   updateAnswers(word) {
-    if (this.answerKey[word]) {
-      this.answerKey[word].reveal();
+    if (this.answerDisplay[word]) {
+      this.answerDisplay[word].reveal();
     }
   }
 
   revealAll() {
-    Object.keys(this.answerKey).forEach(word => {
-      if (!this.answerKey[word].revealed) {
-        this.answerKey[word].reveal(true);
+    Object.keys(this.answerDisplay).forEach(word => {
+      if (!this.answerDisplay[word].revealed) {
+        this.answerDisplay[word].reveal(true);
       }
     });
   }
