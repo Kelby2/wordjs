@@ -8,23 +8,21 @@ import { _charFrequency } from "./components/dictionary/util";
 class Game {
   constructor() {
     this.gameOver = false;
-    this.timer = new Timer(this);
     this.validateInput = this.validateInput.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
-  run() {
-    this.word = new Word();
-    this.board = new Board(this);
-    this.score = new Score();
+  beginRound() {
+    this._createComponents();
     this.timer.start();
-    this.score.display();
-
     this.handlePlayerEntry();
   }
 
   handlePlayerEntry() {
-    const userInput = document.getElementById("user-input");
-    userInput.addEventListener("keypress", this.validateInput);
+    this.userInput = document.getElementById("user-input");
+    this.userInput.disabled = false;
+    this.userInput.focus();
+    this.userInput.addEventListener("keypress", this.validateInput);
   }
 
   validateInput() {
@@ -32,7 +30,7 @@ class Game {
       event.preventDefault();
       switch (event.keyCode) {
         case 13: //enter key to submit input
-          this.handleSubmit(event.currentTarget);
+          this.handleSubmit(event.currentTarget.value);
           event.currentTarget.value = "";
           break;
         case 32: //spacebar to shuffle letters
@@ -43,11 +41,36 @@ class Game {
   }
 
   handleSubmit(word) {
-    this.board.updateAnswers(word.value);
+    if (this.answerKey.has(word)) {
+      this.board.updateAnswers(word);
+      this.score.update(word);
+      //set Message
+    } else {
+      //set Message
+    }
   }
 
   endGame() {
     this.board.revealAll();
+    this.userInput.disabled = true;
+    document.addEventListener("keypress", this.reset);
+  }
+
+  reset() {
+    if (event.keyCode === 32) {
+      event.preventDefault();
+      this.userInput.value = "";
+      this.beginRound();
+      document.removeEventListener("keypress", this.reset);
+    }
+  }
+
+  _createComponents() {
+    this.word = new Word();
+    this.answerKey = new Set(this.word.allSubwords);
+    this.board = new Board(this);
+    this.timer = new Timer(this);
+    this.score = new Score();
   }
 
   _isValid(letter, inputForm) {
