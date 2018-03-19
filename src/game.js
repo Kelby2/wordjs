@@ -29,13 +29,16 @@ class Game {
 
   validateInput() {
     if (this._isValid(event.key, event.currentTarget)) {
-        // console.log("Hello");
+        //
     } else {
         event.preventDefault();
         if (event.keyCode === 13) {
           this.handleSubmit(event.currentTarget);
+          event.currentTarget.value = "";
         }
         if (event.keyCode === 32) {
+          //spacebar shuffles the letters
+          this.endGame();
           this.board.populateKeyWord();
         }
     }
@@ -43,6 +46,10 @@ class Game {
 
   handleSubmit(word) {
     this.board.updateAnswers(word.value);
+  }
+
+  endGame() {
+    this.board.revealAll();
   }
 
   _isValid(letter, inputForm) {
@@ -55,7 +62,6 @@ class Game {
     }
     return true;
   }
-
 
 }
 

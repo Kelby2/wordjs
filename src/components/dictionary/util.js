@@ -4,9 +4,13 @@ import Dictionary from './dictionary';
 
 function _getSubsets(word) {
   const letters = word.split('');
+  // unique subsets
   return subset(letters)
             .filter(letterArrs => letterArrs.length > 2)
-            .map(substrings => substrings.join(''));
+            .map(substrings => substrings.join(''))
+            .filter((subword, index, list) => {
+              return list.indexOf(subword) === index;
+            });
 }
 
 function _getPermutations(array) {
@@ -20,9 +24,8 @@ export const _getValidSubstrings = (keyWord, lengths) => {
   const dictionary = new Dictionary();
   const substrings = _getSubsets(keyWord);
   const subwords = _getPermutations(substrings);
-  const validSubstrings = dictionary.validateCollection(subwords);
-
-  return validSubstrings.filter(word => (
+  const validSubwords = dictionary.validateCollection(subwords);
+  return validSubwords.filter(word => (
     word.length >= lengths.min && word.length <= lengths.max
   )).sort((word1, word2) => (
     //sorts first by length and then alphabetically
