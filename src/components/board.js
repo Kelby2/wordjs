@@ -31,7 +31,7 @@ class Board {
   }
 
   populateKeyWord() {
-    //shuffle key_word letters
+    //shuffle keyWord letters
     const keyWordField = document.getElementById("key-word");
     // const keyWord = new LetterTiles(this.keyWord.shuffled);
     const shuffledKeyWord = this.keyWord.shuffled();
@@ -41,15 +41,20 @@ class Board {
       keyWordField.removeChild(keyWordField.firstChild);
     }
     keyWordField.append(keyWord.answer);
-
   }
 
   updateAnswers(word) {
-    const userInput = document.getElementById("user-input");
-    userInput.value = "";
     if (this.answerKey[word]) {
       this.answerKey[word].reveal();
     }
+  }
+
+  revealAll() {
+    Object.keys(this.answerKey).forEach(word => {
+      if (!this.answerKey[word].revealed) {
+        this.answerKey[word].reveal(true);
+      }
+    });
   }
 
 }

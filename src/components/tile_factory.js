@@ -9,11 +9,12 @@ class LetterTiles {
     this._fill();
   }
 
-  reveal() {
+  reveal(endOfGame = false) {
     //adds the letter to each tile to reveal the answer
     this.revealed = true;
     this.tiles.map((tile, idx) => {
       tile.innerHTML = this.keyWord[idx];
+      if (endOfGame) { tile.classList.add('end-game'); }
     });
     this._fill();
   }
