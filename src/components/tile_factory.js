@@ -1,10 +1,11 @@
 class LetterTiles {
 
-  constructor(word) {
+  constructor(word, key = false) {
     this.keyWord = word;
     this.revealed = false;
-    this.answerItem = document.createElement('li');
-    this.answerItem.classList.add('answer');
+    if (key) { this._shuffle(); }
+    this.answerItem = document.createElement("li");
+    this.answerItem.classList.add("answer");
     this.tiles = this._createLetterTiles(this.keyWord);
     this._fill();
   }
@@ -13,8 +14,8 @@ class LetterTiles {
     //adds the letter to each tile to reveal the answer
     this.revealed = true;
     this.tiles.map((tile, idx) => {
-      tile.innerHTML = this.keyWord[idx];
-      if (endOfGame) { tile.classList.add('end-game'); }
+      tile.innerHTML = this.keyWord[idx].toUpperCase();
+      if (endOfGame) { tile.classList.add("end-game"); }
     });
     this._fill();
   }
@@ -32,6 +33,15 @@ class LetterTiles {
   _fill() {
     //appends the tile to the answer to show on the board
     this.answerItem.append(...this.tiles);
+  }
+
+  _shuffle() {
+    const letterArr = this.keyWord.split("");
+    for (let i = letterArr.length-1; i > 0; i--) {
+      const rIndex = Math.floor(Math.random() * (i+1));
+      [letterArr[i], letterArr[rIndex]] = [letterArr[rIndex], letterArr[i]];
+    }
+    this.keyWord = letterArr.join('');
   }
 
 }

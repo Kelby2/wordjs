@@ -19,16 +19,6 @@ class Word {
     this.value = keyWordsList[rand];
   }
 
-  shuffled() {
-    //Fisher Yates Shuffle
-    const letterArr = this.value.split("");
-    for (let i = letterArr.length-1; i > 0; i--) {
-      const rIndex = Math.floor(Math.random() * (i+1));
-      [letterArr[i], letterArr[rIndex]] = [letterArr[rIndex], letterArr[i]];
-    }
-    return letterArr.join('');
-  }
-
   includes(letter) {
     return this.value.includes(letter.toLowerCase());
   }
