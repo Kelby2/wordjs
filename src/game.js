@@ -10,11 +10,13 @@ class Game {
     this.gameOver = false;
     this.validateInput = this.validateInput.bind(this);
     this.reset = this.reset.bind(this);
+    this.endGame = this.endGame.bind(this);
   }
 
   beginRound() {
     this._createComponents();
     this.timer.start();
+    this.revealBtn = document.getElementById("gg");
     this.handlePlayerEntry();
   }
 
@@ -23,6 +25,7 @@ class Game {
     this.userInput.disabled = false;
     this.userInput.focus();
     this.userInput.addEventListener("keypress", this.validateInput);
+    this.revealBtn.addEventListener("click", this.timer.stop);
   }
 
   validateInput() {
@@ -56,6 +59,7 @@ class Game {
     this.board.revealAll();
     this.userInput.disabled = true;
     document.addEventListener("keypress", this.reset);
+    this.revealBtn.removeEventListener("click", this.endGame);
   }
 
   reset() {
