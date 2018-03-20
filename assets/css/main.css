@@ -40,7 +40,7 @@ body {
 }
 
 #title {
-  font-size: 36px;
+  font-size: 5em;
   position: relative;
   color: #209cb5;
   font-family: 'Fredericka the Great', cursive;
@@ -49,10 +49,10 @@ body {
 #remix {
   font-family: againts;
   position: absolute;
-  left: 70px;
-  top: 25px;
+  left: 50%;
+  top: 70%;
   color: #990016;
-  font-size: 25px;
+  font-size: 0.5em;
 }
 
 #round-info {
@@ -60,7 +60,7 @@ body {
   width: 100%;
 }
 
-.answers {
+.answers-list {
   background-color: rgba(240, 240, 240, 0.1);
   height: 90%;
   width: 84%;
@@ -80,14 +80,14 @@ body {
 
 #key-word {
   min-height: 80px;
-  /*font-size: 80px;*/
-  color: blue;
-  font-weight: bold;
+  width: 80%;
+  height: 8%;
 }
 
 #entry-container {
-  width: 75%;
+  width: 80%;
   height: 8%;
+  border: none;
   min-height: 80px;
 }
 
@@ -96,13 +96,17 @@ body {
   height: 100%;
   font-size: 32px;
   border: none;
+  outline: none;
   padding: 0;
   text-align: center;
+  font-family: 'Alfa+Slab+One', serif;
   background-color: rgba(240, 240, 240, 0.1);
 }
 
 .answer {
   display: flex;
+  font-family: 'Alfa+Slab+One', serif;
+  font-weight: bold;
 }
 
 .tile {
@@ -110,18 +114,35 @@ body {
   width: 15px;
   height: 15px;
   margin: 1px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .end-game {
-  color: red;
+  color: #990016;
+}
+
+#key-word .answer {
+  color: #000000;
+  height: 100%;
+  width: 100%;
 }
 
 #key-word .tile {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  font-size: 30px;
+  width: 100%;
+  height: 100%;
+  font-size: 4em;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#klu-info {
+  display: flex;
+}
+
+.icons {
+  color: black;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 700px) {

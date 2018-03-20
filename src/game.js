@@ -26,17 +26,19 @@ class Game {
   }
 
   validateInput() {
+    event.preventDefault();
     if (!this._isValid(event.key, event.currentTarget)) {
-      event.preventDefault();
       switch (event.keyCode) {
         case 13: //enter key to submit input
-          this.handleSubmit(event.currentTarget.value);
+          this.handleSubmit(event.currentTarget.value.toLowerCase());
           event.currentTarget.value = "";
           break;
         case 32: //spacebar to shuffle letters
           this.board.populateKeyWord();
           break;
       }
+    } else {
+      this.userInput.value += event.key.toUpperCase();
     }
   }
 
