@@ -33,9 +33,7 @@ class Board {
   populateKeyWord() {
     //shuffle keyWord letters
     const keyWordField = document.getElementById("key-word");
-    // const keyWord = new LetterTiles(this.keyWord.shuffled);
-    const shuffledKeyWord = this.keyWord.shuffled();
-    const keyWord = new LetterTiles(shuffledKeyWord);
+    const keyWord = new LetterTiles(this.keyWord.value, true);
     keyWord.reveal();
     if (keyWordField.firstChild) {
       keyWordField.removeChild(keyWordField.firstChild);
@@ -50,6 +48,7 @@ class Board {
   }
 
   revealAll() {
+    //reveals the remaining words
     Object.keys(this.answerDisplay).forEach(word => {
       if (!this.answerDisplay[word].revealed) {
         this.answerDisplay[word].reveal(true);
@@ -66,7 +65,7 @@ class Board {
     while (this.longAnswers.firstChild) {
       this.longAnswers.removeChild(this.longAnswers.firstChild);
     }
-    
+
   }
 
 }
