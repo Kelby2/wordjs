@@ -20,11 +20,11 @@ class Board {
     this.keyWord.allSubwords.forEach(word => {
       if (word.length < 4) {
         const shortAnswer = new LetterTiles(word);
-        this.answerDisplay[word] = shortAnswer;
+        this.ansDisplayKey[word] = shortAnswer;
         this.shortAnswers.append(shortAnswer.answerItem);
       } else {
         const longAnswer = new LetterTiles(word);
-        this.answerDisplay[word] = longAnswer;
+        this.ansDisplayKey[word] = longAnswer;
         this.longAnswers.append(longAnswer.answerItem);
       }
     });
@@ -42,22 +42,22 @@ class Board {
   }
 
   updateAnswers(word) {
-    if (this.answerDisplay[word]) {
-      this.answerDisplay[word].reveal();
+    if (this.ansDisplayKey[word]) {
+      this.ansDisplayKey[word].reveal();
     }
   }
 
   revealAll() {
     //reveals the remaining words
-    Object.keys(this.answerDisplay).forEach(word => {
-      if (!this.answerDisplay[word].revealed) {
-        this.answerDisplay[word].reveal(true);
+    Object.keys(this.ansDisplayKey).forEach(word => {
+      if (!this.ansDisplayKey[word].revealed) {
+        this.ansDisplayKey[word].reveal(true);
       }
     });
   }
 
   reset() {
-    this.answerDisplay = {};
+    this.ansDisplayKey = {};
     while (this.shortAnswers.firstChild) {
       this.shortAnswers.removeChild(this.shortAnswers.firstChild);
     }
