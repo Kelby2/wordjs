@@ -6,12 +6,13 @@ class Timer {
 
   constructor(game) {
     this.game = game;
-    this.duration = 5;
-    this.endOfTime = false;
+    this.duration = 60;
     this.clock = document.getElementById("clock");
+    this.stop = this.stop.bind(this);
   }
 
   start() {
+    clearInterval(this.tick);
     this.tick = setInterval(() => {
       this.display(this.duration);
       this.duration--;
@@ -20,7 +21,7 @@ class Timer {
 
   stop() {
     clearInterval(this.tick);
-    this.endOfTime = true;
+    this.clock.innerHTML = "--";
     this.game.endGame();
   }
 
@@ -28,7 +29,19 @@ class Timer {
     if (this.duration <= 0) {
       this.stop();
     }
-    this.clock.innerHTML = this.duration;
+    this.clock.innerHTML = this._formatTime(this.duration);
+  }
+
+  _formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    if (seconds < 10) { seconds = "0" + seconds; }
+
+    if (minutes > 0) {
+      return `${minutes}:${seconds}`;
+    } else {
+      return `${seconds}`;
+    }
   }
 
   increase(duration) {
