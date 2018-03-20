@@ -6,7 +6,7 @@ class Timer {
 
   constructor(game) {
     this.game = game;
-    this.duration = 60;
+    this.duration = 120;
     this.clock = document.getElementById("clock");
     this.stop = this.stop.bind(this);
   }

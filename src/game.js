@@ -17,6 +17,7 @@ class Game {
     this._createComponents();
     this.timer.start();
     this.revealBtn = document.getElementById("gg");
+    this.newGameBtn = document.getElementById("new-game");
     this.handlePlayerEntry();
   }
 
@@ -26,6 +27,7 @@ class Game {
     this.userInput.focus();
     this.userInput.addEventListener("keypress", this.validateInput);
     this.revealBtn.addEventListener("click", this.timer.stop);
+    this.newGameBtn.addEventListener("click", this.reset);
   }
 
   validateInput() {
@@ -63,8 +65,11 @@ class Game {
   }
 
   reset() {
-    if (event.keyCode === 32) {
+    //resets game if new game button is clicked or spacebar is pressed
+    //after the end of a game
+    if (event.currentTarget.id === "new-game" || event.keyCode === 32) {
       event.preventDefault();
+      this.timer.stop();
       this.userInput.value = "";
       this.beginRound();
       document.removeEventListener("keypress", this.reset);
