@@ -52,8 +52,8 @@ body {
   left: 50%;
   top: 70%;
   color: #990016;
-
   font-size: 0.5em;
+  transition: linear;
 }
 
 #round-info {
@@ -109,19 +109,38 @@ body {
   background-color: rgba(240, 240, 240, 0.1);
 }
 
+#base {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
 #controls {
   display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+#new-game, #gg {
+  text-align: center;
+  background: none;
   font-family: 'Fredericka the Great', cursive;
+  font-size: 1.5em;
+  outline: none;
+}
+
+#new-game {
+  color: green;
+}
+
+#gg {
+  color: #990016;
 }
 
 #klu-info {
-  width: 20%;
-  margin-left: 50%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-family: 'Alfa+Slab+One', serif;
-  font-weight: bold;
+  width: 30%;
 }
 
 .answer {
@@ -162,7 +181,7 @@ body {
   text-decoration: none;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
   #game {
     flex-direction: column;
   }
