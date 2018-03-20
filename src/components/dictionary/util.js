@@ -34,7 +34,7 @@ export const _getValidSubstrings = (keyWord, lengths) => {
 
 export const _charFrequency = (string) => {
   const frequency = {};
-  const letters = string.split("");
+  const letters = string.toLowerCase().split("");
   letters.forEach(letter => {
     if (frequency[letter]) {
       frequency[letter] += 1;

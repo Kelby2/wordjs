@@ -79,7 +79,6 @@ class Game {
     //compares letter frequency of word to the input
     const keyWordCharFrequency = _charFrequency(this.word.value);
     const inputCharFrequency = _charFrequency(inputForm.value);
-
     if (keyWordCharFrequency[letter] === inputCharFrequency[letter]) {
       return false;
     }
