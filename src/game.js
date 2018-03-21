@@ -69,9 +69,7 @@ class Game {
   }
 
   endGame() {
-
     this.board.revealAll();
-    this.message.endMessage();
     this.userInput.disabled = true;
     document.addEventListener("keypress", this.reset);
     this.revealBtn.removeEventListener("click", this.endGame);
