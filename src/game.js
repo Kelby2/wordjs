@@ -1,11 +1,13 @@
 import Timer from "./components/timer";
 import Score from "./components/score";
 import Word from "./components/dictionary/word";
+import Message from "./components/message";
 import Board from "./components/board";
 import { _charFrequency } from "./components/dictionary/util";
 // import Board from "./components/board";
 
 class Game {
+
   constructor() {
     this.gameOver = false;
     this.validateInput = this.validateInput.bind(this);
@@ -15,14 +17,15 @@ class Game {
 
   beginRound() {
     this._createComponents();
+    this.message.clear();
     this.timer.start();
+    this.userInput = document.getElementById("user-input");
     this.revealBtn = document.getElementById("gg");
     this.newGameBtn = document.getElementById("new-game");
-    this.handlePlayerEntry();
+    this.handlePlayerAction();
   }
 
-  handlePlayerEntry() {
-    this.userInput = document.getElementById("user-input");
+  handlePlayerAction() {
     this.userInput.disabled = false;
     this.userInput.focus();
     this.userInput.addEventListener("keypress", this.validateInput);
@@ -35,8 +38,12 @@ class Game {
     if (!this._isValid(event.key, event.currentTarget)) {
       switch (event.keyCode) {
         case 13: //enter key to submit input
-          this.handleSubmit(event.currentTarget.value.toLowerCase());
-          event.currentTarget.value = "";
+          if (event.currentTarget.value.length < 3) {
+            this.message.alertMin();
+          } else {
+            this.handleSubmit(event.currentTarget.value.toLowerCase());
+            event.currentTarget.value = "";
+          }
           break;
         case 32: //spacebar to shuffle letters
           this.board.populateKeyWord();
@@ -49,16 +56,22 @@ class Game {
 
   handleSubmit(word) {
     if (this.answerKey.has(word)) {
-      this.board.updateAnswers(word);
-      this.score.update(word);
-      //set Message
+      if (this.board.ansDisplayKey[word].revealed) {
+        this.message.alert(word, "duplicate");
+      } else {
+        this.board.updateAnswers(word);
+        this.score.update(word);
+        this.message.alert(word, "valid");
+      }
     } else {
-      //set Message
+      this.message.alert(word, "invalid");
     }
   }
 
   endGame() {
+
     this.board.revealAll();
+    this.message.endMessage();
     this.userInput.disabled = true;
     document.addEventListener("keypress", this.reset);
     this.revealBtn.removeEventListener("click", this.endGame);
@@ -82,10 +95,12 @@ class Game {
     this.board = new Board(this);
     this.timer = new Timer(this);
     this.score = new Score();
+    this.message = new Message();
   }
 
   _isValid(letter, inputForm) {
     //compares letter frequency of word to the input
+    //only allows user to enter letters that are in the keyWord
     const keyWordCharFrequency = _charFrequency(this.word.value);
     const inputCharFrequency = _charFrequency(inputForm.value);
     if (keyWordCharFrequency[letter] === inputCharFrequency[letter]) {
