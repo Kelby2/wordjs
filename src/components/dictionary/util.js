@@ -45,3 +45,7 @@ export const _charFrequency = (string) => {
 
   return frequency;
 };
+
+export const calculateWordScore = (word) => {
+  return word.length * 30;
+};

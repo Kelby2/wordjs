@@ -1,3 +1,5 @@
+import { calculateWordScore } from "./dictionary/util.js"
+
 class Score {
 
   constructor() {
@@ -7,7 +9,7 @@ class Score {
   }
 
   update(word) {
-    this.currentScore += this._calculateScore(word);
+    this.currentScore += calculateWordScore(word);
     this.display();
   }
 
@@ -15,9 +17,6 @@ class Score {
     this.gameScore.innerHTML = this.currentScore;
   }
 
-  _calculateScore(word) {
-    return word.length * 30;
-  }
 
   _calculateTotalScore(list) {
 
