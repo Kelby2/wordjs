@@ -5,7 +5,7 @@ class LetterTiles {
     this.revealed = false;
     if (key) { this._shuffle(); }
     this.answerItem = document.createElement("li");
-    this.answerItem.classList.add("answer");
+    this.answerItem.classList.add("answer", "strong");
     this.tiles = this._createLetterTiles(this.keyWord);
     this._fill();
   }
