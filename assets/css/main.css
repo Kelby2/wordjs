@@ -84,6 +84,13 @@ body {
   color: #990016;
 }
 
+#message {
+  min-height: 1em;
+  font-size: 2em;
+  font-family: 'Spectral SC', serif;
+  text-align: center;
+}
+
 #key-word {
   min-height: 80px;
   width: 80%;
@@ -156,10 +163,12 @@ body {
   margin: 1px;
   display: flex;
   justify-content: center;
+  font-size: 85%;
+  align-items: center;
 }
 
 .end-game {
-  color: #990016;
+  color: #990000;
 }
 
 #key-word .answer {
