@@ -55,3 +55,7 @@ table {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.strong {
+	font-weight: bold;
+}
