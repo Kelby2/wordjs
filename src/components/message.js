@@ -10,19 +10,19 @@ class Message {
     let message;
     const score = calculateWordScore(entry);
     const color = (type === "valid") ? "green" : "#990016";
-    const word = `<span style="font-weight:bold;color:${color}">
+    const word = `<span class="strong" style="color:${color}">
     ${entry}</span>`;
 
     switch (type) {
       case "valid":
-        message = `You scored <span style="color:${color}">
+        message = `<span class="strong" style="color:${color}">
         ${score}</span> points for ${word}`;
         break;
       case "duplicate":
         message = `You already played ${word}`;
         break;
       case "invalid":
-        message = `${word} does not exist in the dictionary`;
+        message = `${word}<br>does not exist in the dictionary`;
         break;
     }
 
