@@ -17,11 +17,6 @@ class Score {
     this.gameScore.innerHTML = this.currentScore;
   }
 
-
-  _calculateTotalScore(list) {
-
-  }
-
 }
 
 export default Score;

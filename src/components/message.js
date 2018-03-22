@@ -24,6 +24,9 @@ class Message {
       case "invalid":
         message = `${word}<br>does not exist in the dictionary`;
         break;
+      case "end":
+        message = `You got ${word}% of the words this round!`;
+        break;
     }
 
     this.field.innerHTML = message;
