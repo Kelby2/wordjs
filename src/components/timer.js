@@ -13,14 +13,18 @@ class Timer {
 
   start() {
     clearInterval(this.tick);
-    this.tick = setInterval(() => {
-      this.display(this.duration);
-      this.duration--;
+    this.countdown = setInterval(() => {
+      this.tick();
     }, 1000);
   }
 
+  tick() {
+    this.duration--;
+    this.display();
+  }
+
   stop() {
-    clearInterval(this.tick);
+    clearInterval(this.countdown);
     this.clock.innerHTML = "--";
     this.game.endGame();
   }

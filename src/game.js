@@ -4,7 +4,6 @@ import Word from "./components/dictionary/word";
 import Message from "./components/message";
 import Board from "./components/board";
 import { _charFrequency } from "./components/dictionary/util";
-// import Board from "./components/board";
 
 class Game {
 
@@ -35,7 +34,7 @@ class Game {
 
   validateInput() {
     event.preventDefault();
-    if (!this._isValid(event.key, event.currentTarget)) {
+    if (!this._validateInput(event.key, event.currentTarget)) {
       switch (event.keyCode) {
         case 13: //enter key to submit input
           if (event.currentTarget.value.length < 3) {
@@ -55,35 +54,36 @@ class Game {
   }
 
   handleSubmit(word) {
-    if (this.answerKey.has(word)) {
-      if (this.board.ansDisplayKey[word].revealed) {
-        this.message.alert(word, "duplicate");
-      } else {
-        this.board.updateAnswers(word);
-        this.score.update(word);
-        this.message.alert(word, "valid");
-      }
-    } else {
-      this.message.alert(word, "invalid");
-    }
+    // if (this.validAnswer(word)) {
+    //   if (this.board.ansDisplayKey[word].revealed) {
+    //     this.message.alert(word, "duplicate");
+    //   } else {
+    //     this._updateAnswer(word);
+    //     if (this._allRevealed) { this.endGame(); }
+    //   }
+    // } else {
+    //   this.message.alert(word, "invalid");
+    // }
+
+    //can return duplicate, invalid, or valid
+    const entryType = this._checkForAnswer(word);
+    this.message.alert(word, entryType);
   }
 
   endGame() {
     this.board.revealAll();
     this.userInput.disabled = true;
-    document.addEventListener("keypress", this.reset);
     this.revealBtn.removeEventListener("click", this.endGame);
   }
 
   reset() {
     //resets game if new game button is clicked or spacebar is pressed
     //after the end of a game
-    if (event.currentTarget.id === "new-game" || event.keyCode === 32) {
+    if (event.currentTarget.id === "new-game") {
       event.preventDefault();
       this.timer.stop();
       this.userInput.value = "";
       this.beginRound();
-      document.removeEventListener("keypress", this.reset);
     }
   }
 
@@ -94,9 +94,10 @@ class Game {
     this.timer = new Timer(this);
     this.score = new Score();
     this.message = new Message();
+    this.guessedCounter = 0;
   }
 
-  _isValid(letter, inputForm) {
+  _validateInput(letter, inputForm) {
     //compares letter frequency of word to the input
     //only allows user to enter letters that are in the keyWord
     const keyWordCharFrequency = _charFrequency(this.word.value);
@@ -105,6 +106,30 @@ class Game {
       return false;
     }
     return true;
+  }
+
+  _checkForAnswer(word) {
+    if (!this.answerKey.has(word)) {
+      return "invalid";
+    } else {
+      if (this.board.ansDisplayKey[word].revealed) {
+        return "duplicate";
+      }
+    }
+
+    this.guessedCounter += 1;
+    this._updateAnswer(word);
+    return "valid";
+  }
+
+  _allRevealed() {
+    return this.guessedCounter === this.answerKey.size;
+  }
+
+  _updateAnswer(word) {
+    this.board.updateAnswerDisplay(word);
+    this.score.update(word);
+    this.message.alert(word, "valid");
   }
 
 }
