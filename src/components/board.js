@@ -1,6 +1,5 @@
 import LetterTiles from './tile_factory';
-//populate_board
-//display
+
 class Board {
 
   constructor(game) {
@@ -41,7 +40,7 @@ class Board {
     keyWordField.append(keyWord.answerItem);
   }
 
-  updateAnswers(word) {
+  updateAnswerDisplay(word) {
     if (this.ansDisplayKey[word]) {
       this.ansDisplayKey[word].reveal();
     }
