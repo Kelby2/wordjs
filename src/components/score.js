@@ -1,4 +1,4 @@
-import { calculateWordScore } from "./dictionary/util.js"
+import { calculateWordScore } from "./dictionary/util.js";
 
 class Score {
 
