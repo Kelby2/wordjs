@@ -19,7 +19,7 @@ class Message {
         ${score}</span> points for ${word}`;
         break;
       case "duplicate":
-        message = `You already played ${word}`;
+        message = `${word} has already been played`;
         break;
       case "invalid":
         message = `${word}<br>does not exist in the dictionary`;
