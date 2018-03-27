@@ -20,7 +20,6 @@ class Game {
     this.timer.start();
     this.userInput = document.getElementById("user-input");
     this.revealBtn = document.getElementById("gg");
-    this.newGameBtn = document.getElementById("new-game");
     this.handlePlayerAction();
   }
 
@@ -29,7 +28,6 @@ class Game {
     this.userInput.focus();
     this.userInput.addEventListener("keypress", this.validateInput);
     this.revealBtn.addEventListener("click", this.timer.stop);
-    this.newGameBtn.addEventListener("click", this.reset);
   }
 
   validateInput() {
@@ -67,10 +65,19 @@ class Game {
 
     //can return duplicate, invalid, or valid
     const entryType = this._checkForAnswer(word);
+    if (entryType === "valid") {
+      this.guessedCounter += 1;
+      this._updateAnswer(word);
+    }
     this.message.alert(word, entryType);
+    if (this._allRevealed()) { this.endGame(); }
   }
 
   endGame() {
+    const percentage =
+      atMath.floor(this.guessedCounter / this.answerKey.size * 100);
+    debugger
+    this.message.alert(percentage, "end");
     this.board.revealAll();
     this.userInput.disabled = true;
     this.revealBtn.removeEventListener("click", this.endGame);
@@ -116,9 +123,6 @@ class Game {
         return "duplicate";
       }
     }
-
-    this.guessedCounter += 1;
-    this._updateAnswer(word);
     return "valid";
   }
 
