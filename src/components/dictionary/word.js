@@ -15,7 +15,6 @@ class Word {
   _generateRandomWord() {
     const rand = Math.floor(Math.random() * keyWordsList.length);
     this.value = keyWordsList[rand];
-    this.value = 'exit'
   }
 
   includes(letter) {
