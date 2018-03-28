@@ -3,6 +3,29 @@
     src: url("fonts/againts.otf") format("opentype");
 }
 
+.instructions {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 40%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: Spectral SC, serif;
+  font-size: 1em;
+  background-color: white;
+  transition: all 0.5s linear;
+  transform-origin: top right;
+  transform-style: preserve-3d;
+  transform: scale(0.3);
+  /*opacity: 0*/
+
+}
+
+.show {
+  transform: scale(1.0);
+  opacity: 1;
+}
+
 body {
   background-image: url("./images/gradient_bg.jpg");
   background-position: center center;
@@ -14,6 +37,10 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: sans-serif;
+}
+
+.hide {
+  display: none;
 }
 
 #game {
