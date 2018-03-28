@@ -23,52 +23,44 @@
         <div class="info">Time: <span id="clock">--</span></div>
         <div class="info">Score: <span id="score">0</span></div>
       </section>
-
-      <section id="message">
-      </section>
-
+      <section id="message"></section>
       <div id="key-word"></div>
-
       <form id="entry-container">
         <input id="user-input"
               type="text"
+              autofocus
               maxlength=6
               autocomplete="off"
               placeholder="..."></input>
       </form>
-
       <nav id="base">
         <section id="controls">
           <button id="new-game">New Word</button>
           <button id="gg">Reveal All</button>
         </section>
-
         <section id="klu-info">
-          <div>
-            <a
-            href="https://www.linkedin.com/in/kelbylu/"
-            class="fa fa-linkedin-square fa-2x icons"></a>
-          </div>
-          <div>
-            <a
-            href="https://github.com/Kelby2/wordjs"
-            class="fa fa-github-square fa-2x icons"></a>
-          </div>
-          <div>
-            <a
-            href="mailto:kelbylu28@gmail.com"
-            class="fa fa-envelope fa-2x icons"
-            ></a>
-          </div>
+            <i id="ins-btn" class="fa fa-question-circle fa-2x icons"></i>
+            <a href="https://www.linkedin.com/in/kelbylu/" class="fa fa-linkedin-square fa-2x icons"></a>
+            <a href="https://github.com/Kelby2/wordjs" class="fa fa-github-square fa-2x icons"></a>
+            <a href="mailto:kelbylu28@gmail.com" class="fa fa-envelope fa-2x icons"></a>
         </section>
       </nav>
-
     </article>
 
     <aside class="display side-panel">
       <div id="long-list" class="answers-list">
       </div>
     </aside>
+
+    <section class="instructions show">
+        Type into the field as many words as you can find in 2 minutes.<br>
+        Score additional points with longer words.<br>
+        Words must be between 3-6 letters in length.<br>
+        You are only allowed to enter the letters provided.<br>
+        Press Spacebar to shuffle the letters.<br>
+        Click for a New Word when ready to begin!
+    </section>
+
   </main>
 </body>
 </html>
