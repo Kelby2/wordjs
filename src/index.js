@@ -1,15 +1,14 @@
-import Game from "./game";
+import GameHandler from "./game";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const game = new Game();
-  const newGameBtn = document.getElementById("new-game");
+  const game = new GameHandler();
+  const newGame = document.getElementById("new-game");
+
   window.onload = () => {
-    // game.beginRound();
-    newGameBtn.addEventListener("click", () => {
+    newGame.addEventListener("click", () => {
+      event.preventDefault();
       game.beginRound();
     });
-
   };
-
 
 });
