@@ -15,8 +15,8 @@ class Message {
 
     switch (isAnswer) {
       case true:
-        message = `<span class="strong" style="color:${color}">
-        ${score}</span> points for ${word}`;
+        message = `Scored <span class="strong" style="color:${color}">
+        ${score}</span> points for ${word}!`;
         break;
       case "duplicate":
         message = `${word} has already been played`;
