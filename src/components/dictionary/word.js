@@ -9,14 +9,13 @@ class Word {
   }
 
   _generateSubwords() {
-    const shortSubwords = _getValidSubstrings(this.value, { min: 3, max: 3 } );
-    const longSubwords = _getValidSubstrings(this.value, { min: 4, max: 6 });
-    this.allSubwords = [...shortSubwords, ...longSubwords];
+    this.allSubwords = _getValidSubstrings(this.value, { min: 3, max: 6 });
   }
 
   _generateRandomWord() {
     const rand = Math.floor(Math.random() * keyWordsList.length);
     this.value = keyWordsList[rand];
+    this.value = 'exit'
   }
 
   includes(letter) {

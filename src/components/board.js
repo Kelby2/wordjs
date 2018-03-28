@@ -2,11 +2,11 @@ import LetterTiles from './tile_factory';
 
 class Board {
 
-  constructor(game) {
-    this.game = game;
-    this.keyWord = this.game.word;
-    this.shortAnswers = document.getElementById("short-list");
-    this.longAnswers = document.getElementById("long-list");
+  constructor(keyWord) {
+    this.keyWord = keyWord;
+    this.shortAnsCharLimit = 4;
+    this.shortAnsDisplay = document.getElementById("short-list");
+    this.longAnsDisplay = document.getElementById("long-list");
     this.reset();
     this.populate();
   }
@@ -17,14 +17,14 @@ class Board {
     this.populateKeyWord();
 
     this.keyWord.allSubwords.forEach(word => {
-      if (word.length < 4) {
-        const shortAnswer = new LetterTiles(word);
-        this.ansDisplayKey[word] = shortAnswer;
-        this.shortAnswers.append(shortAnswer.answerItem);
+      if (word.length < this.shortAnsCharLimit) {
+        const shortAnsItem = new LetterTiles(word);
+        this.ansDisplayKey[word] = shortAnsItem;
+        this.shortAnsDisplay.append(shortAnsItem.answerItem);
       } else {
-        const longAnswer = new LetterTiles(word);
-        this.ansDisplayKey[word] = longAnswer;
-        this.longAnswers.append(longAnswer.answerItem);
+        const longAnsItem = new LetterTiles(word);
+        this.ansDisplayKey[word] = longAnsItem;
+        this.longAnsDisplay.append(longAnsItem.answerItem);
       }
     });
   }
@@ -57,12 +57,12 @@ class Board {
 
   reset() {
     this.ansDisplayKey = {};
-    while (this.shortAnswers.firstChild) {
-      this.shortAnswers.removeChild(this.shortAnswers.firstChild);
+    while (this.shortAnsDisplay.firstChild) {
+      this.shortAnsDisplay.removeChild(this.shortAnsDisplay.firstChild);
     }
 
-    while (this.longAnswers.firstChild) {
-      this.longAnswers.removeChild(this.longAnswers.firstChild);
+    while (this.longAnsDisplay.firstChild) {
+      this.longAnsDisplay.removeChild(this.longAnsDisplay.firstChild);
     }
 
   }
