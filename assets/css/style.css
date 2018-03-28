@@ -85,7 +85,7 @@ body {
 }
 
 #message {
-  min-height: 1em;
+  min-height: 2em;
   font-size: 2em;
   font-family: 'Spectral SC', serif;
   text-align: center;
