@@ -2,17 +2,18 @@
 //stop
 //display
 
-class Timer {
+class TimerObject {
 
   constructor(game) {
     this.game = game;
-    this.duration = 120;
-    this.clock = document.getElementById("clock");
+    this.clockDisplay = document.getElementById("clock");
     this.stop = this.stop.bind(this);
   }
 
   start() {
-    clearInterval(this.tick);
+    this.stop();
+    this.duration = 3;
+    this.display();
     this.countdown = setInterval(() => {
       this.tick();
     }, 1000);
@@ -25,15 +26,14 @@ class Timer {
 
   stop() {
     clearInterval(this.countdown);
-    this.clock.innerHTML = "--";
-    this.game.endGame();
   }
 
   display() {
     if (this.duration <= 0) {
       this.stop();
+      this.game.endGame();
     }
-    this.clock.innerHTML = this._formatTime(this.duration);
+    this.clockDisplay.innerHTML = this._formatTime(this.duration);
   }
 
   _formatTime(time) {
@@ -48,11 +48,11 @@ class Timer {
     }
   }
 
-  increase(duration) {
+  increase(time) {
     //increase duration after entering X words
     //future implementation
   }
 
 }
 
-export default Timer;
+export default TimerObject;
