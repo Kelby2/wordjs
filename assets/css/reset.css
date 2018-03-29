@@ -37,6 +37,7 @@ body {
 ol, ul, li {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
@@ -52,10 +53,10 @@ table {
 	border-spacing: 0;
 }
 
-::-webkit-scrollbar {
-    display: none;
+.strong {
+	font-weight: bolder;
 }
 
-.strong {
-	font-weight: bold;
+::-webkit-scrollbar {
+    display: none;
 }

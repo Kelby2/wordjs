@@ -3,27 +3,36 @@
     src: url("fonts/againts.otf") format("opentype");
 }
 
-.instructions {
+#ins-btn {
   position: absolute;
-  left: 50%;
-  top: 40%;
-  width: 40%;
-  transform: translateX(-50%);
+  top: 5%;
+  right: 5%;
+}
+
+.instructions {
+  transform: scale(0.1);
+  position: absolute;
+  left: 0; right: 0;
+  top: 30%;
+  width: 79%;
+  height: auto;
+  margin: auto;
   text-align: center;
   font-family: Spectral SC, serif;
-  font-size: 1em;
-  background-color: white;
   transition: all 0.5s linear;
-  transform-origin: top right;
+  transform-origin: center;
   transform-style: preserve-3d;
-  transform: scale(0.3);
-  /*opacity: 0*/
-
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px;
 }
 
 .show {
   transform: scale(1.0);
   opacity: 1;
+  background-color: rgba(240, 240, 240, 1);
 }
 
 body {
@@ -64,6 +73,7 @@ body {
 #game-panel {
   flex: 2;
   justify-content: space-around;
+  position: relative;
 }
 
 #title {
@@ -163,12 +173,12 @@ body {
   outline: none;
 }
 
-#new-game {
-  color: green;
+.clr-grn {
+  color: #008000;
 }
 
-#gg {
-  color: #990016;
+.clr-red {
+  color: #990016
 }
 
 #klu-info {
