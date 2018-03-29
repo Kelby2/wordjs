@@ -16,7 +16,7 @@ class Message {
     switch (isAnswer) {
       case true:
         message = `Scored <span class="strong" style="color:${color}">
-        ${score}</span> points for ${word}!`;
+        ${score}</span> points for ${word}`;
         break;
       case "duplicate":
         message = `${word} has already been played`;
@@ -31,7 +31,7 @@ class Message {
   conclude(percentage) {
     const color = (percentage > 49) ? "#008000" : "#990016";
     const message = `You got <span class="strong" style="color:${color}">
-    ${percentage}%</span> of the words!`;
+    ${percentage}%</span> of the words`;
     this.field.innerHTML = message;
   }
 
