@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.onload = () => {
     newGame.addEventListener("click", () => {
       event.preventDefault();
-      instructions.classList.remove("show");
+      instructions.classList.remove("active");
       game.beginRound();
     });
   };
 
-  const instructions = document.getElementsByClassName("instructions")[0];
-  const asdf = document.getElementById("ins-btn");
-  asdf.addEventListener("click", () =>{
-    instructions.classList.toggle("show");
+  const instructions = document.getElementById("ins");
+  const insToggler = document.getElementById("ins-btn");
+  insToggler.addEventListener("click", () =>{
+    instructions.classList.toggle("active");
   });
 });
