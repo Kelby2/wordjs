@@ -1,12 +1,13 @@
 class LetterTiles {
 
   constructor(word, key = false) {
-    this.keyWord = word;
+    this.word = word;
     this.revealed = false;
-    if (key) { this._shuffle(); }
+    this.key = key;
+    if (this.key) { this._shuffle(); }
     this.answerItem = document.createElement("li");
     this.answerItem.classList.add("answer", "strong");
-    this.tiles = this._createLetterTiles(this.keyWord);
+    this.tiles = this._createLetterTiles(this.word);
     this._fill();
   }
 
@@ -14,9 +15,19 @@ class LetterTiles {
     //adds the letter to each tile to reveal the answer
     this.revealed = true;
     this.tiles.map((tile, idx) => {
-      tile.innerHTML = this.keyWord[idx].toUpperCase();
+      tile.innerHTML = this.word[idx].toUpperCase();
       if (endOfGame) { tile.classList.add("end-game"); }
     });
+
+    if (!this.key) {
+      this.answerItem.classList.add("search");
+      this.answerItem.addEventListener("click", () => {
+        window.open(
+          `https://google.com/search?q=define+${this.word}`
+        );
+      });
+    }
+    
     this._fill();
   }
 
@@ -36,12 +47,16 @@ class LetterTiles {
   }
 
   _shuffle() {
-    const letterArr = this.keyWord.split("");
+    const letterArr = this.word.split("");
     for (let i = letterArr.length-1; i > 0; i--) {
       const rIndex = Math.floor(Math.random() * (i+1));
       [letterArr[i], letterArr[rIndex]] = [letterArr[rIndex], letterArr[i]];
     }
-    this.keyWord = letterArr.join('');
+    if (this.word === letterArr.join('')) {
+      this._shuffle();
+    } else {
+      this.word = letterArr.join('');
+    }
   }
 
 }

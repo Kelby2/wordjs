@@ -36,7 +36,8 @@ class Message {
     this.clear();
     const color = (percentage > 49) ? "#008000" : "#990016";
     const message = `You got <span class="strong" style="color:${color}">
-    ${percentage}%</span> of the words`;
+    ${percentage}%</span> of the words!<br>
+    Click on each word to learn it's definition.`;
     this.field.innerHTML = message;
   }
 
