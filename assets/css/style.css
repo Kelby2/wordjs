@@ -28,12 +28,12 @@
   flex-direction: column;
   justify-content: center;
   padding: 5px;
+  background-color: rgba(240, 240, 240, 1);
 }
 
 .active {
   transform: scale(1.0);
   opacity: 1;
-  background-color: rgba(240, 240, 240, 1);
 }
 
 body {
@@ -47,10 +47,6 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: sans-serif;
-}
-
-.hide {
-  display: none;
 }
 
 #game {
