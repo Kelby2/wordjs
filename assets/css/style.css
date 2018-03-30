@@ -238,7 +238,7 @@ body {
   text-decoration: none;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 900px) {
   #game {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -260,7 +260,7 @@ body {
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   #game {
     display: flex;
     flex-direction: column;
