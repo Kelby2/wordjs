@@ -6,7 +6,7 @@ Addictive word-finding puzzle game. The goal is to find as many words as you can
 
 ## Gameplay
 
-![gameplay](./assets/readme/gameplay.gif)
+![gameplay](./assets/readme/gameplay.mp4)
 
 Press the New Word button at the bottom of the page to generate new letters. Within the allotted time (2 minutes), type into the field as many words as you can find with the six letters.
 
