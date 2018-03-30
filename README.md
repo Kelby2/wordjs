@@ -14,10 +14,17 @@ The words remain concealed until the player finds them. If time expires of the p
 ## Implementation
 * Dictionary for validating words is constructed using a Set, resulting in O(1) look-up time
 * New key-word is generated randomly from a list of 500 possible words for replay value.
-* Event listeners added
+* Event listeners added on the input field to validate player key press and submission, responding with custom messages depending on if the word is valid and if it has already been entered.
+* Created with responsive design so that game can be viewed and played regardless of screen size.
+
 
 ## Future Implementation
-* Light up the letter that the user enters on keypress.
+* Light up the letter that the player enters on keypress.
 * Multiplayer mode where players can play match up against each other with the same word.
 * Implement hint feature that will utilize a trie to provide the player cues on if they are inputting valid words.
 * Backend server to keep track of high scores per word.
+
+<br>
+Developed using JavaScript ES6, HTML5, CSS3
+
+Kelby Lu
