@@ -24,9 +24,6 @@
   transform-origin: center;
   transform-style: preserve-3d;
   opacity: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 5px;
   background-color: rgba(240, 240, 240, 1);
 }
@@ -132,6 +129,11 @@ body {
   font-size: 2em;
   font-family: 'Spectral SC', serif;
   text-align: center;
+}
+
+.fade {
+  opacity: 0;
+  transition: all 3s ease-out;
 }
 
 #key-word {

@@ -8,6 +8,7 @@ class Message {
 
   display(entry, isAnswer) {
     let message;
+    this.clear();
     const score = calculateWordScore(entry);
     const color = (isAnswer === true) ? "#008000" : "#990016";
     const word = `<span class="strong" style="color:${color}">
@@ -26,9 +27,13 @@ class Message {
         break;
     }
     this.field.innerHTML = message;
+    setTimeout(() => {
+      this.field.classList.add("fade");
+    }, 0);
   }
 
   conclude(percentage) {
+    this.clear();
     const color = (percentage > 49) ? "#008000" : "#990016";
     const message = `You got <span class="strong" style="color:${color}">
     ${percentage}%</span> of the words`;
@@ -40,6 +45,7 @@ class Message {
   }
 
   clear() {
+    this.field.classList.remove("fade");
     this.field.innerHTML = "";
   }
 
