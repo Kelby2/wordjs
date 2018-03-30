@@ -49,8 +49,8 @@ class TimerObject {
   }
 
   increase(time) {
-    //increase duration after entering X words
-    //future implementation
+    //potential implementation where user is able to incrase their
+    //time if criteria is met
   }
 
 }
