@@ -470,6 +470,6 @@ const keyWords = [
 "zinged",
 "zodiac",
 "zodiac"
-]
+];
 
 export default keyWords;
