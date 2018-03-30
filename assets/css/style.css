@@ -203,6 +203,10 @@ body {
   font-family: 'Alfa+Slab+One', serif;
 }
 
+.search:hover, i:hover {
+  cursor: help;
+}
+
 .tile {
   border: 1px solid #ffffff;
   width: 15px;
