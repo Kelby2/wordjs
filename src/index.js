@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const instructions = document.getElementById("ins");
   const insToggler = document.getElementById("ins-btn");
-  insToggler.addEventListener("click", () =>{
+  insToggler.addEventListener("click", () => {
     instructions.classList.toggle("active");
   });
 });
