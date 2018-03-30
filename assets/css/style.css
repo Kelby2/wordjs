@@ -15,7 +15,7 @@
   position: absolute;
   left: 0; right: 0;
   top: 30%;
-  width: 79%;
+  width: 80%;
   height: auto;
   margin: auto;
   text-align: center;
@@ -25,6 +25,9 @@
   transform-style: preserve-3d;
   opacity: 0;
   padding: 5px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   background-color: rgba(240, 240, 240, 1);
 }
 
