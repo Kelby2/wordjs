@@ -37,7 +37,7 @@
 }
 
 body {
-  background-image: url("./images/gradient_bg.jpg");
+  background-image: url("./background/gradient_bg.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-color: #464646;
