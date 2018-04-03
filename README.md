@@ -14,7 +14,7 @@ The side panels show all valid words (3-6 letters in length) that can be made us
 
 The words remain concealed until the player finds them. If time expires of the player concedes, all unfound words will be revealed. The player will then have the option to click on each word for a definition.
 
-<img src="./assets/images/gameplay.gif" width="350">
+<img src="./assets/images/search.gif" width="350">
 
 ## Implementation
 * Dictionary for validating words is constructed using a Set, resulting in O(1) look-up time
