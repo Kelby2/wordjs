@@ -55,7 +55,7 @@ class GameHandler {
 
   handleSubmit(word) {
     const isAnswer = this._checkAnswer(word);
-    if (isAnswer) {
+    if (isAnswer === true) {
       this.correctAnsCounter += 1;
       this._updateBoardAnswers(word);
     }
