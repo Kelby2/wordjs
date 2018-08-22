@@ -103,7 +103,7 @@ body {
 }
 
 .info {
-  width: 50%;
+  width: 60%;
   font-size: 2em;
   color: #000000;
   font-weight: bold;
@@ -125,11 +125,12 @@ body {
   color: #990016;
 }
 
-#message {
+.alerts {
   min-height: 2em;
   font-size: 2em;
   font-family: 'Spectral SC', serif;
   text-align: center;
+  grid-column: 1/3;
 }
 
 .fade {
