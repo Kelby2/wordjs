@@ -48,11 +48,6 @@ class TimerObject {
     }
   }
 
-  increase(time) {
-    //potential implementation where user is able to incrase their
-    //time if criteria is met
-  }
-
 }
 
 export default TimerObject;
