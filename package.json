@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "all-subsets": "^1.0.0",
+    "firebase": "^5.4.0",
     "permutation": "0.0.1",
     "webpack": "^4.0.0"
   },
