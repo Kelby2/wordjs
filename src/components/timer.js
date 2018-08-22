@@ -12,7 +12,7 @@ class TimerObject {
 
   start() {
     this.stop();
-    this.duration = 120;
+    this.duration = 90;
     this.display();
     this.countdown = setInterval(() => {
       this.tick();
