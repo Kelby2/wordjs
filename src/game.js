@@ -67,6 +67,7 @@ class GameHandler {
     const percentage =
       Math.floor(this.correctAnsCounter / this.answerKey.size * 100);
     this.message.conclude(percentage);
+    this.message.revealScore(this.word.value, this.score.currentScore);
     this.board.revealAll();
     this.timer.stop();
     this.userInput.disabled = true;

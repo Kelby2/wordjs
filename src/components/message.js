@@ -1,9 +1,11 @@
 import { calculateWordScore } from './dictionary/util.js';
+import { renderScoreMessage } from './score_util';
 
 class Message {
 
   constructor() {
     this.field = document.getElementById("message");
+    this.scoreField = document.getElementById("highscore");
   }
 
   display(entry, isAnswer) {
@@ -34,8 +36,8 @@ class Message {
 
   conclude(percentage) {
     this.clear();
-    const color = (percentage > 49) ? "#008000" : "#990016";
-    const message = `You got <span class="strong" style="color:${color}">
+    const color = (percentage > 49) ? "clr-grn" : "clr-red";
+    const message = `And you got <span class="strong ${color}">
     ${percentage}%</span> of the words!<br>
     Click on each word to learn it's definition.`;
     this.field.innerHTML = message;
@@ -48,6 +50,11 @@ class Message {
   clear() {
     this.field.classList.remove("fade");
     this.field.innerHTML = "";
+    this.scoreField.innerHTML = "";
+  }
+
+  revealScore(word, score) {
+    renderScoreMessage(word, score);
   }
 
 }
